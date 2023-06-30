@@ -1,0 +1,588 @@
+/* Configuración Interfaz Principal */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+:root {
+    --blanco: #ffffff;
+    --oscuro: #000000;
+    --primario: #FFC107;
+    --secundario: #0097A7;
+    --gris: #757575;
+    --color: #0A4661;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 16px;/*1rem = 10px*/
+    font-family: 'Krub', sans-serif;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 2.5rem;
+    height: 10px;
+    color: var(--color);
+}
+
+.contenedor {
+    width: 95%;
+    margin: 20px auto;
+    display: flex;
+    padding: 5px;
+    flex-flow: column wrap;
+    gap: 33px;
+}
+
+header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header__imagenes {
+    width: 99%;
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* CSS :nth-child SELECTORS */
+
+.header__imagenes img:nth-child(1) {
+    width: 120px;
+    height: 100px;
+}
+
+.header__imagenes img:nth-child(2) {
+    width: 200px;
+    height: 60%;
+}
+
+header img {
+    width: 200px;
+    height: 60px;
+}
+
+header .uni img:nth-child(2) {
+    margin-left: 30px;
+    width: 90px;
+    height: 80px;
+}
+
+.boton-1 {
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    border: .5px solid #2e518b; /*anchura, estilo y color borde*/
+    padding: 8px; /*espacio alrededor texto*/
+    background-color: #ffffff; /*color botón*/
+    color: #0A4661; /*color texto*/
+    margin-right: 8px;
+    text-decoration: none; /*decoración texto*/
+    text-transform: uppercase; /*capitalización texto*/
+    font-family: 'Helvetica', sans-serif; /*tipografía texto*/
+    border-radius: 5px; /*bordes redondos*/
+}
+
+.boton-2 {
+    
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    border: .5px solid #2e518b; /*anchura, estilo y color borde*/
+    padding: 8px; /*espacio alrededor texto*/
+    background-color: #ffffff; /*color botón*/
+    color: #0A4661; /*color texto*/
+    margin-left: 8px;
+    text-decoration: none; /*decoración texto*/
+    text-transform: uppercase; /*capitalización texto*/
+    font-family: 'Helvetica', sans-serif; /*tipografía texto*/
+    border-radius: 5px; /*bordes redondos*/
+}
+
+.boton-3 {  
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    border: .5px solid #2e518b; /*anchura, estilo y color borde*/
+    padding: 8px; /*espacio alrededor texto*/
+    background-color: #ffffff; /*color botón*/
+    color: #0A4661; /*color texto*/
+    margin-right: 8px;
+    text-decoration: none; /*decoración texto*/
+    text-transform: uppercase; /*capitalización texto*/
+    font-family: 'Helvetica', sans-serif; /*tipografía texto*/
+    border-radius: 5px; /*bordes redondos*/
+}
+
+.datos-generales {
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    margin-inline: auto;
+    gap: 4px;
+    justify-content: space-between;
+}
+
+.datos h1 {
+
+    display: flex;
+    flex-flow: row wrap;
+    font-size: 3rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.datos {
+    display: flex;
+    flex-flow: row wrap;
+    font-size: 1.2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.data {
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: 40px;
+    color: var(--color);
+    font-size: 2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Datos Reloj */
+
+.reloj {
+    width: 99%;
+    text-align: center;
+    display: flex;
+    flex-flow: row wrap;
+    font-family: 'Krub', sans-serif;
+    justify-content: right;
+
+}
+
+.reloj label {
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: 40px;
+    color: var(--color);
+    font-size: 2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.reloj h1 {
+    font-size: 2rem;
+    margin-left: 5px;
+    font-weight: 400;
+    color: var(--color);
+    font-family: 'Krub', sans-serif;
+}
+
+.reloj p {
+    font-size: 2rem;
+    margin-left: 5px;
+    color: var(--color);
+    font-family: 'Krub', sans-serif;
+}
+
+/* Login */
+
+
+.form-login {
+    text-align: center;
+    width: 400px;
+    min-width: 300px;
+    border-radius: 10px;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    flex-direction: column;
+    margin: 10px;
+    margin-inline: auto;
+}
+
+.form-body img {
+    width: 250px;
+    display: block;
+    margin: 70px auto;
+}
+
+.login-form input{
+    outline: none;
+    border: none;
+    background: transparent;
+    color: #252525;
+    border-bottom: solid 1px #252525;
+    padding: 0 5px;
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+.login-form input [type="password"] {
+    margin-top: 20px;
+}
+
+::placeholder {
+    font-size: 2rem;
+    color: rgba(17, 16, 16, 0.596);
+}
+
+.form-login input:placeholder {
+    transition: 5s;
+    border: 1px solid #0a4661;
+    color: black;
+}
+
+.form-login button {
+    display: block;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    height: 40px;
+    width: 40%;
+    background: transparent;
+    color: black;
+    border-radius: 2px;
+    cursor: pointer;
+    outline: none;
+    transition: all .5s ease;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+.form-login button:hover {
+    border: 2px solid #0a4661;
+    background: linear-gradient(#34495e, #2c3e50);
+    color: white;
+}
+
+/* Main para cajas pagina */
+main {
+    width: 100%;
+    padding: 1px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+main .caja {
+    width: 48%;
+    height: 100px;
+}
+
+
+/* Grafica */
+.caja {
+    padding: 50px;
+    display: flex;
+    background-color: #F4F4F4;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.caja canvas {
+    width: 200px;
+    height: 60px;
+}
+
+/* Potencia Valores */
+.caja:nth-child(1) {
+    padding: 50px;
+    display: flex;
+    background-color: #F4F4F4;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.caja:nth-child(1) label {
+    font-size: 1.5rem;
+    color: var(--oscuro);
+    text-transform: uppercase; /*capitalización texto*/
+}
+
+.caja:nth-child(1) .slider {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.caja:nth-child(1) .slider input {
+    height: 10px;
+    width: 100%;
+}
+
+
+.caja:nth-child(1) h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    font-family: 'Krub', sans-serif;
+    color: var(--color);
+    width: 55px;
+    text-align: center;
+}
+
+
+/* Sensibilidad */
+.caja:nth-child(2) {
+    padding: 50px;
+    display: flex;
+    background-color: #F4F4F4;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.caja:nth-child(2) label {
+    font-size: 1.5rem;
+    color: var(--oscuro);
+    text-transform: uppercase; /*capitalización texto*/
+}
+
+.caja:nth-child(2) .slider {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.caja:nth-child(2) .slider input {
+    height: 10px;
+    width: 100%;
+}
+
+
+.caja:nth-child(2) h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    font-family: 'Krub', sans-serif;
+    color: var(--color);
+    width: 55px;
+    text-align: center;
+}
+
+
+/* Rango */
+.caja:nth-child(3) {
+    display: flex;
+    background-color: #F4F4F4;
+    flex-flow: row wrap;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.caja:nth-child(3) .rade {
+    width: 100%;
+    display: flex;
+    background-color: #F4F4F4;
+    flex-flow: row wrap;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.caja:nth-child(3) h2 {
+    width: 100%;
+    text-align: center;
+    flex-direction: column wrap;
+    font-size: 1.5rem;
+    color: var(--oscuro);
+    padding: 10px;
+    text-transform: uppercase; /*capitalización texto*/
+}
+
+/* Distancia Minima */
+.caja:nth-child(4) {
+    display: flex;
+    background-color: #F4F4F4;
+    flex-flow: row wrap;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.caja:nth-child(4) h2 {
+    width: 100%;
+    text-align: center;
+    flex-direction: column wrap;
+    font-size: 1.5rem;
+    color: var(--oscuro);
+    padding: 10px;
+    font-weight: 500;
+    text-transform: uppercase; /*capitalización texto*/
+}
+
+.caja:nth-child(4) form {
+    display: flex;
+    width: 100%;
+    background-color: #F4F4F4;
+    padding: 10px;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* Calibración */
+.caja:nth-child(5) {
+    padding: 50px;
+    display: flex;
+    background-color: #F4F4F4;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.caja:nth-child(5) label {
+    font-size: 1.5rem;
+    color: var(--oscuro);
+    font-weight: 500;
+    text-transform: uppercase;
+    flex-direction: column ;
+    flex-flow: row wrap;
+}
+
+.caja:nth-child(5) .cal {
+    width: 100%;
+    display: flex;
+    text-align: center;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.caja:nth-child(5) .cal label {
+    font-size: 1.3rem;
+    margin-right: 100px;
+    font-family: 'Krub', sans-serif;
+}
+
+.caja:nth-child(5) .range {
+    width: 100%;
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: space-evenly;
+    gap: 5px;
+}
+
+.caja:nth-child(5) .range input {
+    width: 30%;
+    margin-inline: auto;
+    font-size: 1.5rem;
+    margin-left: 80px;
+    text-align: right;
+    justify-content: space-evenly;
+}
+.caja:nth-child(5) h1 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-inline: auto;
+        margin-right: 65px;
+        font-family: 'Krub', sans-serif;
+        width: 55px;
+        color: var(--color);
+        text-align: center;
+
+}
+
+/* Pulsos */
+.caja:nth-child(6) {
+    display: flex;
+    background-color: #F4F4F4;
+    padding: 10px;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.caja:nth-child(6) h2 {
+    width: 100%;
+    flex-direction: column wrap;
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--oscuro);
+    font-weight: 500;
+    text-transform: uppercase; /*capitalización texto*/
+}
+
+.caja:nth-child(6) form {
+    display: flex;
+    width: 100%;
+    background-color: #F4F4F4;
+    padding: 10px;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* TVG */
+.caja:nth-child(7) {
+    display: flex;
+    background-color: #F4F4F4;
+    padding: 10px;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.caja:nth-child(7) h2 {
+    width: 100%;
+    flex-direction: column wrap;
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--oscuro);
+    font-weight: 500;
+    text-transform: uppercase; /*capitalización texto*/
+}
+
+.caja:nth-child(7) .tvg {
+    display: flex;
+    width: 100%;
+    background-color: #F4F4F4;
+    padding: 10px;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* Caja 8 */
+.caja:nth-child(8) {
+    height: 200px;
+    display: flex;
+    background-color: #F4F4F4;
+    padding: 10px;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+}

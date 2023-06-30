@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Panel Ecosonda</title>
+	<link rel="icon" type="image/svg+xml" href="img/vite.svg">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/flex.css">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body style="background-color: #C0C0C0;">
+
+	<div class="contenedor">
+
+		<header>
+			<div class="uni" style="text-align: left;">
+				<img src="img/logo.png" alt="logo marina">
+				<img src="img/unidad.png" alt="logo unidad">
+			</div>
+			<div style="text-align: right;">
+				<a class="boton-1" href="#" style="margin: .4rem;">Cargar Configuración</a>
+				<a class="boton-2" href="#" style="margin: .4rem;">Guardar Configuración</a>
+				<a class="boton-3" href="iniciar.html" style="margin: .4rem;">Iniciar Sesión</a>
+			</div>
+		</header>
+		<h1 class="titulo">PANEL DE CONTROL DE ECOSONDA HIDROSONIC-50</h1>
+
+		<div class="datos-generales">
+			<div class="datos">
+				<h1 id="profundidad" style="color: var(--color);">Profundidad: 20 m</h1>
+				<h2 id="ubicación" style="color: var(--color);">GPS: 19°02'44.1"N 95°58'19.4"O</h2>
+				<h2 style="color: var(--color);">IP: <span id="ip"></span></h2>
+
+				<div class="reloj">
+					<label for="hora"><strong> Hora:</strong></label><br>
+					<h1 id="time"><strong> 00:00:00</strong></h1>
+					<label for="date"><strong> Fecha: </strong></label>
+					<p id="date"> Date</p>
+				</div>
+			</div>
+		</div>
+
+		<main>
+
+			<div class="caja">
+				<label><strong>Nivel de Potencia</strong></label>
+				<div class="slider">
+					<input type="range" id="potential-range" min="0" max="10" value="0" step="0.5" onchange="onChangePotentialSlider()">
+					<h1 id="potential-value-text">0</h1>
+				</div>
+			</div>
+
+			<div class="caja">
+				<label><strong>Nivel de Sensibilidad</strong></label>
+				<div class="slider">
+					<input type="range" id="sensibility-range" min="0" max="10" value="0" step="0.5" onchange="onChangeSensibilitySlider()">
+					<h1 id="sensibility-value-text">0</h1>
+				</div>
+			</div>
+
+			<div class="caja">
+				<h2><strong>Rango de Profundidad</strong></h2>
+				<form id="depth-range-form" class="hstack-acenter-jbetween">
+					<label for="radio1"><input type="radio" id="radio1" name="radio" value="20" checked> 20 m</label>
+					<label for="radio2"><input type="radio" id="radio2" name="radio" value="100"> 100 m</label>
+					<label for="radio3"><input type="radio" id="radio3" name="radio" value="200"> 200 m</label>
+					<label for="radio4"><input type="radio" id="radio4" name="radio" value="400"> 400 m</label>
+				</form>
+			</div>
+
+			<div class="caja">
+				<h2><strong>Distancia Minima</strong></h2>
+				<form id="minimum-distance-form" class="hstack-acenter-jbetween">
+					<label for="radio5"><input type="radio" id="radio5" name="radio" value="0" checked>0 m</label>
+					<label for="radio6"><input type="radio" id="radio6" name="radio" value="1">1 m</label>
+					<label for="radio7"><input type="radio" id="radio7" name="radio" value="2">2 m</label>
+					<label for="radio8"><input type="radio" id="radio8" name="radio" value="3">3 m</label>
+				</form>
+			</div>
+
+			<div class="caja">
+
+				<label for="name"><strong>Calibración</strong></label>
+				<div class="cal">
+					<label for="cali">Velocidad Prop. Acustica</label>
+					<div>
+						<label for="cali">Offset</label>
+					</div>
+				</div>
+				
+				<div class="range">
+					<input type="text" id="velocity-input" name="age" min="0" max="10" step="0.5" maxlength="3" pattern="0-9" onkeypress="return filterFloat(event,this);" />
+					<h1 id="texto">m/s</h1>
+					<input type="text" id="offset-input" name="age" min="0" max="10" step="0.5" maxlength="3" pattern="0-9" onkeypress="return filterFloat(event,this);" />
+					<h1 id="texto">m</h1>
+				</div>
+
+			</div>
+
+			<div class="caja">
+				<h2><strong>Pulsos</strong></h2>
+				<form id="pulses-form" class="hstack-acenter-jbetween">
+					<label for="radio9"><input type="radio"  id="radio9"  name="radio" value="1" checked>Corto</label>
+					<label for="radio10"><input type="radio" id="radio10" name="radio" value="2">Mediano</label>
+					<label for="radio11"><input type="radio" id="radio11" name="radio" value="3">Largo</label>
+				</form>
+			</div>
+
+			<div class="caja">
+				<h2><strong>TVG</strong></h2>
+				<form id="tvg-form" class="hstack-acenter-jbetween">
+					<label for="radio12"><input type="radio" id="radio12" name="radio" value="10" checked> 10 log</label>
+					<label for="radio13"><input type="radio" id="radio13" name="radio" value="20"> 20 log</label>
+					<label for="radio14"><input type="radio" id="radio14" name="radio" value="30"> 30 log</label>
+					<label for="radio15"><input type="radio" id="radio15" name="radio" value="40"> 40 log</label>
+				</form>
+			</div>
+
+			<div class="caja">
+				<canvas id="myChart"></canvas>
+			</div>
+
+		</main>
+		<script src="js/reloj.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/script.js"></script>
+		<script src="js/grafica.js"></script>
+		<script src="js/form.js"></script>
+</body>
+
+</html>
