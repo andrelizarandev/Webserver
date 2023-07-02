@@ -20,15 +20,15 @@ var sensibilityTitle = document.getElementById("sensibility-value-text");
 var pastSlider1Value = 0;
 var pastSlider2Value = 0;
 
-var pastForm1Value = 0;
+var pastForm1Value = 20;
 var pastForm2Value = 0;
-var pastForm3Value = 0;
-var pastForm4Value = 0;
+var pastForm3Value = 'Corto';
+var pastForm4Value = 10;
 
 var pastInput1Value = 0;
 var pastInput2Value = 0;
 
-setInterval(checkAllValues, 2000);
+setInterval(checkAllValues, 6000);
 
 function checkAllValues () {
 
@@ -42,14 +42,14 @@ function checkAllValues () {
   const offset = validatedDidInput2ValueChanged();
 
   const objectValues = {
-    Potencia: Number(potential.value),
-    Sensibilidad: Number(sensibility.value),
-    Profundidad: Number(depth.value),
-    DistanciaMinima: Number(minimumDistance.value),
-    Pulsos: Number(pulses.value),
-    TVG: Number(tvg.value),
-    Velocidad: velocity.value ? Number(velocity.value) : 0,
-    Offset: offset.value ? Number(offset.value) : 0,
+    Potencia: potential.value,
+    Sensibilidad: sensibility.value,
+    Profundidad: depth.value,
+    DistanciaMinima: minimumDistance.value,
+    Pulsos: pulses.value,
+    TVG: tvg.value,
+    Velocidad: velocity.value || 0,
+    Offset: offset.value || 0
   }
 
   if (potential.isDifferent || sensibility.isDifferent || depth.isDifferent || minimumDistance.isDifferent || pulses.isDifferent || tvg.isDifferent || velocity.isDifferent || offset.isDifferent) postValues(objectValues);
@@ -66,29 +66,31 @@ async function postValues (values) {
 }
 
 function validatedDidSlider1ValueChanged () {
-  const isValueDifferent = slider1.value != pastSlider1Value;
-  pastSlider1Value = slider1.value;
-  return { value:slider1.value, isDifferent:isValueDifferent}
+  const valueAsNumber = Number(slider1.value);
+  const isValueDifferent = valueAsNumber != pastSlider1Value;
+  pastSlider1Value = valueAsNumber;
+  return { value:valueAsNumber, isDifferent:isValueDifferent}
 }
 
 function validatedDidSlider2ValueChanged () {
-  const isValueDifferent = slider2.value != pastSlider2Value;
-  pastSlider2Value = slider2.value;
-  return { value:slider2.value, isDifferent:isValueDifferent}
+  const valueAsNumber = Number(slider2.value);
+  const isValueDifferent = valueAsNumber != pastSlider2Value;
+  pastSlider2Value = valueAsNumber;
+  return { value:valueAsNumber, isDifferent:isValueDifferent}
 }
 
 function validatedDidForm1ValueChanged () {
-  const formValue = form1.elements["radio"].value;
-  const isValueDifferent = formValue != pastForm1Value;
-  pastForm1Value = formValue;
-  return { value:formValue, isDifferent: isValueDifferent }
+  const valueAsNumber = Number(form1.elements["radio"].value);
+  const isValueDifferent = valueAsNumber != pastForm1Value;
+  pastForm1Value = valueAsNumber;
+  return { value:valueAsNumber, isDifferent: isValueDifferent }
 }
 
 function validatedDidForm2ValueChanged () {
-  const formValue = form2.elements["radio"].value;
-  const isValueDifferent = formValue != pastForm2Value;
-  pastForm2Value = formValue;
-  return { value:formValue, isDifferent: isValueDifferent }
+  const valueAsNumber = Number(form2.elements["radio"].value);
+  const isValueDifferent = valueAsNumber != pastForm2Value;
+  pastForm2Value = valueAsNumber;
+  return { value:valueAsNumber, isDifferent: isValueDifferent }
 }
 
 function validatedDidForm3ValueChanged () {
@@ -99,22 +101,24 @@ function validatedDidForm3ValueChanged () {
 }
 
 function validatedDidForm4ValueChanged () {
-  const formValue = form4.elements["radio"].value;
-  const isValueDifferent = formValue != pastForm4Value;
-  pastForm4Value = formValue;
-  return { value:formValue, isDifferent: isValueDifferent }
+  const valueAsNumber = Number(form4.elements["radio"].value);
+  const isValueDifferent = valueAsNumber != pastForm4Value;
+  pastForm4Value = valueAsNumber;
+  return { value:valueAsNumber, isDifferent: isValueDifferent }
 }
 
 function validatedDidInput1ValueChanged () {
-  const isValueDifferent = input1.value != pastInput1Value;
-  pastInput1Value = input1.value;
-  return { value:input1.value, isDifferent: isValueDifferent }
+  const valueAsNumber = (input1.value) ? Number(input1.value) : 0
+  const isValueDifferent = valueAsNumber != pastInput1Value;
+  pastInput1Value = valueAsNumber;
+  return { value:valueAsNumber, isDifferent: isValueDifferent }
 }
 
 function validatedDidInput2ValueChanged () {
-  const isValueDifferent = input2.value != pastInput2Value;
-  pastInput2Value = input2.value;
-  return { value:input2.value, isDifferent: isValueDifferent }
+  const valueAsNumber = (input2.value) ? Number(input2.value) : 0
+  const isValueDifferent = valueAsNumber != pastInput2Value;
+  pastInput2Value = valueAsNumber;
+  return { value:valueAsNumber, isDifferent: isValueDifferent }
 }
 
 // On change 
