@@ -69,14 +69,14 @@ function validatedDidSlider1ValueChanged () {
   const valueAsNumber = Number(slider1.value);
   const isValueDifferent = valueAsNumber != pastSlider1Value;
   pastSlider1Value = valueAsNumber;
-  return { value:valueAsNumber, isDifferent:isValueDifferent}
+  return { value:valueAsNumber, isDifferent:isValueDifferent }
 }
 
 function validatedDidSlider2ValueChanged () {
   const valueAsNumber = Number(slider2.value);
   const isValueDifferent = valueAsNumber != pastSlider2Value;
   pastSlider2Value = valueAsNumber;
-  return { value:valueAsNumber, isDifferent:isValueDifferent}
+  return { value:valueAsNumber, isDifferent:isValueDifferent }
 }
 
 function validatedDidForm1ValueChanged () {
