@@ -1,6 +1,20 @@
-function getParameters (data) {
-  const parsedData = JSON.parse(data);
-  console.log(parsedData);
+function handleMessages (message, ws) {
+  const parsedMessage = JSON.parse(message);
+  const { type, data } = parsedMessage;
+  switch (type) {
+    case 'parameters-from-app': return getParametersFromApp(data);
+    case 'parameters-from-app-server': return getParametersFromAppServer(data, ws);
+  }
+}
+
+function getParametersFromApp (data) {
+  console.log('Parameters from app: ', data)
+}
+
+function getParametersFromAppServer (data, ws) {
+  console.log('Parameters from app server: ', data)
+  const payloadAsString = JSON.stringify({ type:'parameters-from-server', data });
+  ws.send(payloadAsString);
 }
 
 function getGpsAndDepthValues () {
@@ -18,6 +32,8 @@ function getGpsAndDepthValues () {
 }
 
 module.exports = {
-  getParameters,
-  getGpsAndDepthValues
+  handleMessages,
+  getParametersFromApp,
+  getGpsAndDepthValues,
+  getParametersFromAppServer
 }
