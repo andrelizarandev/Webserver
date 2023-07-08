@@ -28,7 +28,7 @@ var pastForm4Value = 10;
 var pastInput1Value = 0;
 var pastInput2Value = 0;
 
-setInterval(checkAllValues, 6000);
+setInterval(checkAllValues, 1000);
 
 function checkAllValues () {
 
@@ -54,15 +54,6 @@ function checkAllValues () {
 
   if (potential.isDifferent || sensibility.isDifferent || depth.isDifferent || minimumDistance.isDifferent || pulses.isDifferent || tvg.isDifferent || velocity.isDifferent || offset.isDifferent) postValues(objectValues);
   
-}
-
-async function postValues (values) {
-  try {
-    await fetch('http://localhost:4000/values', { method: 'POST', headers:fetchHeadersConfig, body: JSON.stringify({ values }) });
-    alert('Valores actualizados')
-  } catch (error) {
-    alert('Error al actualizar los valores');
-  }
 }
 
 function validatedDidSlider1ValueChanged () {
@@ -129,5 +120,3 @@ function onChangeSensibilitySlider () {
 function onChangePotentialSlider () {
   potentialTitle.innerHTML = slider1.value;
 }
-
-const fetchHeadersConfig = { 'Content-Type': 'application/json' }

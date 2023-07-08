@@ -1,18 +1,20 @@
 // Modules
-const cors = require('cors');
-const express = require('express');
+const WebSocket = require('ws');
 
-// Routers 
-const router = require('./routes/index');
+// Controllers
+const { getGpsAndDepthValues, getParameters } = require('./controllers');
 
-const app = express();
+const wss = new WebSocket.Server({ port: 8080 });
 
-app.use(cors());
-app.use(express.json());
+wss.on('connection', (ws) => {
 
-app.use('/values', router);
-app.use('/parameters', router);
+  ws.on('open', () => console.log('Client connected'));
+  ws.on('close', () => console.log('Client disconnected'));
 
-const port = process.env.PORT || 4000;
+  // Receive
+  ws.on('message', (message) => getParameters(message));
 
-app.listen(port, () => console.log(`Server running on port ${port}`));
+  // Send
+  setInterval(() => ws.send(getGpsAndDepthValues()), 1000);
+
+})
