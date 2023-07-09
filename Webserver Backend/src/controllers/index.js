@@ -1,9 +1,13 @@
-function handleMessages (message, ws) {
+function handleMessages (message, wss) {
   const parsedMessage = JSON.parse(message);
   const { type, data } = parsedMessage;
   switch (type) {
-    case 'parameters-from-app': return getParametersFromApp(data);
-    case 'parameters-from-app-server': return getParametersFromAppServer(data, ws);
+    case 'parameters-from-app': 
+      getParametersFromApp(data);
+      break;
+    case 'parameters-from-app-server': 
+      getParametersFromAppServer(data, wss);
+      break;
   }
 }
 
@@ -11,10 +15,10 @@ function getParametersFromApp (data) {
   console.log('Parameters from app: ', data)
 }
 
-function getParametersFromAppServer (data, ws) {
+function getParametersFromAppServer (data, wss) {
   console.log('Parameters from app server: ', data)
   const payloadAsString = JSON.stringify({ type:'parameters-from-server', data });
-  ws.send(payloadAsString);
+  wss.clients.forEach((client) => client.send(payloadAsString));
 }
 
 function getGpsAndDepthValues () {

@@ -9,6 +9,7 @@ const WebSocketServer = require('ws');
 const { getGpsAndDepthValues, handleMessages } = require('./controllers');
 
 // Vars
+var clients = [];
 const port = 8080;
 const staticPath = path.join(__dirname, './public');
 
@@ -22,7 +23,7 @@ wss.on('connection', (ws) => {
   ws.on('close', () => console.log('Client disconnected'));
 
   // Receive
-  ws.on('message', (message) => handleMessages(message, ws));
+  ws.on('message', (message) => handleMessages(message, wss));
 
   // Send
   setInterval(() => ws.send(getGpsAndDepthValues()), 1000);

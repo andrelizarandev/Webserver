@@ -25,5 +25,5 @@ function getGpsAndDepthValues (data) {
 }
 
 function getParametersFromServer (data) {
-  console.log('Paramters from server: ', data);
+  console.log('Parameters from server: ', data);
 }
