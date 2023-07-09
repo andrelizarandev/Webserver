@@ -9,7 +9,6 @@ const WebSocketServer = require('ws');
 const { getGpsAndDepthValues, handleMessages } = require('./controllers');
 
 // Vars
-var clients = [];
 const port = 8080;
 const staticPath = path.join(__dirname, './public');
 
