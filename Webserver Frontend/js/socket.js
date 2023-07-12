@@ -1,8 +1,3 @@
-// Websocket
-var depthValues = [];
-
-const socket = new WebSocket('ws://localhost:8080');
-
 socket.addEventListener('open', (event) => {
   console.log('Connected to server');
 });
@@ -21,7 +16,7 @@ function postValues (values) {
 }
 
 function getGpsAndDepthValues (data) {
-  const { gps, depth } = data;
+  const { gps } = data;
   document.getElementById('gps-parameter').innerHTML = gps;
 }
 
@@ -101,4 +96,7 @@ function setTVGValue (value) {
 function setDepthValues (value) {
   document.getElementById('depth-parameter').innerHTML = `Profundidad: ${value} m`;
   depthValues.push(Number(value));
+  myChart.data.datasets[0].data = depthValues;
+  myChart.data.labels = depthValues.map((_, index) => (index + 1));
+  myChart.update();
 }

@@ -1,6 +1,6 @@
 const labels = depthValues.map((_, index) => (index + 1));
 
-new Chart(document.getElementById("depth-chart"), {
+const myChart = new Chart(chart, {
 	type: 'line',
 	data: {
 		labels: depthValues.map((_, index) => (index + 1)),
