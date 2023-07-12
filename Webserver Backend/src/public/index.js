@@ -42,7 +42,7 @@ function validateSensibilityValue (value) {
   return valueAsNumber >= 0 && valueAsNumber <= 100;
 }
 
-function validateDepthValue () {
+function validateDepthValue (value) {
   const valueAsNumber = Number(value);
   if (isNaN(valueAsNumber)) return false;
   return valueAsNumber === 20 || valueAsNumber === 100 || valueAsNumber === 200 || valueAsNumber === 400;
