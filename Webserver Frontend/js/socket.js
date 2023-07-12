@@ -41,13 +41,15 @@ function setValuesToHtmlElements (value = []) {
 }
 
 function setPotentialRangeValue (value) {
-  document.getElementById('potential-range').value = value;
-  document.getElementById('potential-value-text').innerHTML = value;
+  const valueAsNumber = Math.round(Number(value)).toFixed(1);
+  document.getElementById('potential-range').value = valueAsNumber;
+  document.getElementById('potential-value-text').innerHTML = valueAsNumber;
 }
 
 function setSensibilityRangeValue (value) {
-  document.getElementById('sensibility-range').value = value;
-  document.getElementById('sensibility-value-text').innerHTML = value;
+  const valueAsNumber = Math.round(Number(value)).toFixed(1);
+  document.getElementById('sensibility-range').value = valueAsNumber;
+  document.getElementById('sensibility-value-text').innerHTML = valueAsNumber;
 }
 
 function setDepthRangeValue (value) {
