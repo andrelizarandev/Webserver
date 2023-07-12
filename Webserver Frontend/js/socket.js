@@ -68,12 +68,12 @@ function setMinimumDistanceValue (value) {
   }
 }
 
-function setVelocityValue (value) {
-  document.getElementById('velocity-input').value = value;
+function setVelocityValue (value = 0) {
+  document.getElementById('velocity-input').value = value.toFixed(2);
 }
 
 function setOffsetValue (value) {
-  document.getElementById('offset-input').value = value;
+  document.getElementById('offset-input').value = value.toFixed(2);
 }
 
 function setPulsesValue (value) {
