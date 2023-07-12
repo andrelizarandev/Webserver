@@ -12,9 +12,12 @@ const myChart = new Chart(chart, {
 		}]
 	},
 	options: {
-		title: {
-			display: true,
-			text: 'Chart JS Line Chart Example'
+		scales: {
+			y: {
+				max:0,
+				min:-200,
+				beginAtZero: true,
+			},
 		}
 	}
 });
