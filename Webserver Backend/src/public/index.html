@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servidor</title>
+    <link rel="stylesheet" href="./index.css">
   </head>
   
-  <body>
+  <body class="main-container">
 
-    <label for="depth-input">Profundidad</label>
-    <input type="text" id="depth-input" placeholder="Escribe algo">
-    
-    <button onclick="sendInputValues()">Mandar</button>
+    <div class="main-content-container">
+      <H4 for="depth-input">DATOS A ENVIAR</H4>
+      <textarea type="text" id="parameters-values" placeholder="Escribe algo" rows="6"></textarea>
+      <button onclick="sendInputValues()">Mandar</button>
+    </div>
 
   </body>
   
