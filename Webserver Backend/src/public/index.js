@@ -8,9 +8,11 @@ ws.addEventListener('open', (event) => {
   console.log('Connected to server');
 });
 
-function sendInputValues () {
+setInterval(() => sendInputValues(false), 15000);
+
+function sendInputValues (showAlert) {
   const values = parametersValues.value;
-  if (!validateParametersValues(values)) return alert('Valores no válidos');
+  if (!validateParametersValues(values)) return (showAlert) ? alert('Valores no válidos') : null;
   const payloadAsString = JSON.stringify({ type:'parameters-from-app-server', data:values });
   ws.send(payloadAsString);
 }

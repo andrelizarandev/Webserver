@@ -15,7 +15,7 @@ const myChart = new Chart(chart, {
 		scales: {
 			y: {
 				max:0,
-				min:-200,
+				min:-400,
 				beginAtZero: true,
 			},
 		}

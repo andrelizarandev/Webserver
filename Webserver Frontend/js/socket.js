@@ -37,7 +37,6 @@ function setValuesToHtmlElements (value = []) {
   setPulsesValue(value7);
   setTVGValue(value8);
   setDepthValues(value9);
-  alert('Parámetros actualizados desde el servidor');
 }
 
 function setPotentialRangeValue (value) {
@@ -97,9 +96,9 @@ function setTVGValue (value) {
 
 function setDepthValues (value) {
   document.getElementById('depth-parameter').innerHTML = `Profundidad: ${value} m`;
-
   depthValues.push(Number(value) * -1);
+  hourValues.push(new Date().toLocaleTimeString());
   myChart.data.datasets[0].data = depthValues;
-  myChart.data.labels = depthValues.map((_, index) => (index + 1));
+  myChart.data.labels = hourValues;
   myChart.update();
 }
