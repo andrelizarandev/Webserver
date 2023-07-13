@@ -97,7 +97,8 @@ function setTVGValue (value) {
 
 function setDepthValues (value) {
   document.getElementById('depth-parameter').innerHTML = `Profundidad: ${value} m`;
-  depthValues.push(Number(value));
+
+  depthValues.push(Number(value) * -1);
   myChart.data.datasets[0].data = depthValues;
   myChart.data.labels = depthValues.map((_, index) => (index + 1));
   myChart.update();

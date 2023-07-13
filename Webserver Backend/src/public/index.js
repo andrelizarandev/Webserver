@@ -22,7 +22,7 @@ function validateParametersValues (value = "") {
   const result2 = validateSensibilityValue(value2);
   const result3 = validateDepthValue(value3);
   const result4 = validateMinimumDistanceValue(value4);
-  const result5 = validateAcustictProp(value5);
+  const result5 = validateAcusticProp(value5);
   const result6 = validateOffsetValue(value6);
   const result7 = validatePulsesValue(value7);
   const result8 = validateTVGValue(value8);
@@ -48,14 +48,14 @@ function validateDepthValue (value) {
   return valueAsNumber === 20 || valueAsNumber === 100 || valueAsNumber === 200 || valueAsNumber === 400;
 }
 
-function validateAcustictProp (value) {
+function validateAcusticProp (value) {
   const valueAsNumber = Number(value);
-  return (!isNaN(valueAsNumber))
+  return (!isNaN(valueAsNumber) && valueAsNumber >= 0 && valueAsNumber <= 10)
 }
 
 function validateOffsetValue (value) {
   const valueAsNumber = Number(value);
-  return (!isNaN(valueAsNumber))
+  return (!isNaN(valueAsNumber) && valueAsNumber >= 0 && valueAsNumber <= 10)
 }
 
 function validateMinimumDistanceValue (value) {
@@ -79,5 +79,5 @@ function validateTVGValue (value) {
 function validateDepthForChart (value) {
   const valueAsNumber = Number(value);
   if (isNaN(valueAsNumber)) return false;
-  return valueAsNumber <= 0 && valueAsNumber >= -200;
+  return valueAsNumber >= 0 && valueAsNumber <= 200;
 }
