@@ -8,7 +8,7 @@ ws.addEventListener('open', (event) => {
   console.log('Connected to server');
 });
 
-setInterval(() => sendInputValues(), 1000);
+setInterval(() => sendInputValues(), 15000);
 
 function sendInputValues () {
   const values = getRandomValues();
