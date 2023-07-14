@@ -17,7 +17,17 @@ const myChart = new Chart(chart, {
 				max:0,
 				min:-400,
 				beginAtZero: true,
+				title: {
+					display: true,
+					text: 'Profundidad (m)'
+				}
 			},
+			x: {
+				title: {
+					display: true,
+					text: 'Tiempo (s)'
+				}
+			}
 		}
 	}
 });
