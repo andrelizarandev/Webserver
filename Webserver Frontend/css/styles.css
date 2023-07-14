@@ -292,7 +292,7 @@ main .caja {
 
 /* Grafica */
 .caja {
-    padding: 50px;
+    padding: 10px;
     display: flex;
     background-color: #F4F4F4;
     flex-direction: column;
