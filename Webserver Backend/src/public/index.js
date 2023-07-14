@@ -8,11 +8,12 @@ ws.addEventListener('open', (event) => {
   console.log('Connected to server');
 });
 
-setInterval(() => sendInputValues(), 15000);
+setInterval(() => sendInputValues(), 1000);
 
 function sendInputValues () {
   const values = getRandomValues();
-  parametersInput.value = values;
+  const currentValues = parametersInput.value;
+  parametersInput.value = ` ${values}\n${currentValues}`
   const payloadAsString = JSON.stringify({ type:'parameters-from-app-server', data:values });
   ws.send(payloadAsString);
 }
@@ -40,11 +41,11 @@ function getMinimumDistanceValue () {
 }
 
 function getAcusticValue () {
-  return (Math.random() * 100).toFixed(1)
+  return Math.floor((Math.random() * 10))
 }
 
 function getOffsetValue () {
-  return (Math.random() * 10).toFixed(1)
+  return Math.floor((Math.random() * 10))
 }
 
 function getPulsesValue () {
